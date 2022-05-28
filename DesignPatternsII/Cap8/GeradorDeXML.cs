@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Serialization;
+
+namespace DesignPatternsII.Cap8
+{
+    public class GeradorDeXML
+    {
+        public String GeraXml(Object o)
+        {
+            XmlSerializer serializer = new XmlSerializer(o.GetType());
+            StringWriter writer = new StringWriter();
+            serializer.Serialize(writer, o);
+
+            return writer.ToString();
+        }
+    }
+}
